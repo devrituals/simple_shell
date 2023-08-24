@@ -3,10 +3,10 @@
 main(void)
 {		
 	int i = 0;
-	char *line = NULL;
+	char *lide = NULL;
 	char *command = NULL;
 	char **argumentz = NULL;
-	char *line_copy = NULL;
+	char *line_cypy = NULL;
 	int interactive = isatty(STDIN_FILENO);
 
 	while (1)
@@ -15,36 +15,36 @@ main(void)
 		{
 			display_prompt();
 		}
-		line = read_command();
+		lide = read_command();
 
-		if (line == NULL)
+		if (lide == NULL)
 		{
 			break;
 		}
-		line_copy = strdup(line);
-		command = strtok(line_copy, " \t\n");
+		line_cypy = strdup(lide);
+		command = strtok(line_cypy, " \t\n");
 
 		if (command != NULL)
 		{
-			arguments = pased_arguments(line);
+			argumentz = pased_argumentz(lide);
 
 			if (strcmp(command, "exit") == 0)
 			{
-				while (arguments[i])
+				while (argumentz[i])
 				{
-					free(arguments[i]);
+					free(argumentz[i]);
 					i++;
 				}
-				free(arguments);
-				free(line);
-				free(line_copy);
+				free(argumentz);
+				free(lide);
+				free(line_cypy);
 				return (0);
 			}
 			else if (strcmp(command, "ls") == 0)
 			{
 				char command_path[] = "/bin/ls";
 
-				execute_command(command_path, arguments, &line);
+				execute_command(command_path, argumentz, &lide);
 			}
 			else if (strcmp(command, "env") == 0)
 			{
@@ -52,18 +52,18 @@ main(void)
 			}
 			else
 			{
-				execute_command(command, arguments, &line);
+				execute_command(command, argumentz, &lide);
 			}
 			i = 0;
-			while (arguments[i])
+			while (argumentz[i])
 			{
-				free(arguments[i]);
+				free(argumentz[i]);
 				i++;
 			}
-			free(arguments);
+			free(argumentz);
 		}
-		free(line);
-		free(line_copy);
+		free(lide);
+		free(line_cypy);
 	}
 	return (0);
 }

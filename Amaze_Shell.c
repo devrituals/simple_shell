@@ -1,10 +1,11 @@
 #include "shell.h"
-	int main(void){
-		
+	int 
+main(void)
+{		
 	int i = 0;
 	char *line = NULL;
 	char *command = NULL;
-	char **arguments = NULL;
+	char **argumentz = NULL;
 	char *line_copy = NULL;
 	int interactive = isatty(STDIN_FILENO);
 

@@ -1,5 +1,4 @@
 #include "shell.h"
-
 	int main(void){
 		
 	int i = 0;
@@ -8,34 +7,29 @@
 	char **arguments = NULL;
 	char *line_copy = NULL;
 	int interactive = isatty(STDIN_FILENO);
-while (arguments[i])
-			{
-				free(arguments[i]);
-				i++;
-			}
-			free(arguments);		
+
 	while (1)
 	{
 		if (interactive)
 		{
-			display_prompt();
+		display_prompt();
 		}
 		line = read_command();
 
 		if (line == NULL)
 		{
-			break;
+		break;
 		}
 		line_copy = strdup(line);
 		command = strtok(line_copy, " \t\n");
 
 		if (command != NULL)
 		{
-			arguments = pased_arguments(line);
+		arguments = pased_arguments(line);
 
 			if (strcmp(command, "exit") == 0)
 			{
-				while (arguments[i])
+			while (arguments[i])
 				{
 					free(arguments[i]);
 					i++;
@@ -47,20 +41,25 @@ while (arguments[i])
 			}
 			else if (strcmp(command, "ls") == 0)
 			{
-				char command_path[] = "/bin/ls";
+			char command_path[] = "/bin/ls";
 
-				execute_command(command_path, arguments, &line);
+			execute_command(command_path, arguments, &line);
 			}
 			else if (strcmp(command, "env") == 0)
 			{
-				print_environment();
+			print_environment();
 			}
 			else
 			{
-				execute_command(command, arguments, &line);
+			execute_command(command, arguments, &line);
 			}
 			i = 0;
-			
+			while (arguments[i])
+			{
+			free(arguments[i]);
+			i++;
+			}
+			free(arguments);
 		}
 		free(line);
 		free(line_copy);

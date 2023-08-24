@@ -26,7 +26,7 @@ main(void)
 
 		if (command != NULL)
 		{
-			argumentz = pased_argumentz(lide);
+			argumentz = pased_arguments(lide);
 
 			if (strcmp(command, "exit") == 0)
 			{

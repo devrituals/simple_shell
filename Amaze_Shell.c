@@ -10,40 +10,40 @@
 
 	while (1)
 	{
-		if (interactive)
+	if (interactive)
 		{
-			display_prompt();
+	display_prompt();
 		}
-		line = read_command();
+	line = read_command();
 
 		if (line == NULL)
 		{
-			break;
+		break;
 		}
-		line_copy = strdup(line);
 		command = strtok(line_copy, " \t\n");
+		line_copy = strdup(line);
 
-		if (command != NULL)
+	if (command != NULL)
 		{
 			arguments = pased_arguments(line);
 
-			if (strcmp(command, "exit") == 0)
+		if (strcmp(command, "exit") == 0)
 			{
 				while (arguments[i])
 				{
-					free(arguments[i]);
-					i++;
+				free(arguments[i]);
+				i++;
 				}
-				free(arguments);
-				free(line);
+			free(arguments);
+		free(line);
 				free(line_copy);
-				return (0);
+			return (0);
 			}
 			else if (strcmp(command, "ls") == 0)
 			{
 				char command_path[] = "/bin/ls";
 
-				execute_command(command_path, arguments, &line);
+			execute_command(command_path, arguments, &line);
 			}
 			else if (strcmp(command, "env") == 0)
 			{
@@ -51,18 +51,18 @@
 			}
 			else
 			{
-				execute_command(command, arguments, &line);
+			execute_command(command, arguments, &line);
 			}
 			i = 0;
 			while (arguments[i])
 			{
 				free(arguments[i]);
-				i++;
+			i++;
 			}
 			free(arguments);
 		}
 		free(line);
-		free(line_copy);
+	free(line_copy);
 	}
 	return (0);
 }

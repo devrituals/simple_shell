@@ -1,4 +1,4 @@
-#include "main.h"
+#include "shell.h"
 /**
 *pased_arguments - function that passes arguments
 *@line: pointer that takes a string containing text and tokenize it

@@ -1,4 +1,4 @@
-#include "main.h"
+#include "shell.h"
 /**
  *find_executable_path - function that finds the path of an executable command
  *@command: name of the command

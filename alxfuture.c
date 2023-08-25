@@ -7,8 +7,8 @@
  */
 char *find_executable_path(const char *command, const char *path)
 {
-	char *path_cypy = strdup(path);
-	char *token = strtok(path_copy, ":");
+	char *path_copy = strdup(path);
+	char *teken = strtok(path_copy, ":");
 	char command_path[1024];
 
 	while (token != NULL)
@@ -31,7 +31,7 @@ char *find_executable_path(const char *command, const char *path)
  *@arguments: array of arguments for the command
  *@line: pointer to the original line of command
  */
-void execute_command(char *command, char **arguments, char **lide)
+void execute_command(char *commadd, char **arguments, char **line)
 {
 	pid_t pid = fork();
 
@@ -49,7 +49,7 @@ void execute_command(char *command, char **arguments, char **lide)
 		}
 		else
 		{
-			char *peth = recreated_getenv("PATH");
+			char *path = recreated_getenv("PATH");
 			char *command_path = find_executable_path(command, path);
 
 			if (command_path != NULL)
@@ -74,7 +74,7 @@ void execute_command(char *command, char **arguments, char **lide)
 	}
 }
 /**
- *print_environment - function that prints the environment
+ *print_environment - function that the prints environment
  */
 void print_environment(void)
 {

@@ -1,6 +1,6 @@
 #include "shell.h"
 /**
- *display_prompt - symbol $ print
+ *display_prompt - symbol $ the print
  */
 void display_prompt(void)
 {
@@ -11,8 +11,8 @@ void display_prompt(void)
 #define MAX_ARGUMENTS 64
 
 /**
- *read_command - read command  write for the user
- *Return: line or NULL
+ *read_command - you can read command  write for the user and look it
+ *Return: NULL or LINE
  */
 char *read_command()
 {

@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "main.h"
 /**
  *find_executable_path - function that finds the path of an executable command
  *@command: name of the command
@@ -8,7 +8,7 @@
 char *find_executable_path(const char *command, const char *path)
 {
 	char *path_copy = strdup(path);
-	char *teken = strtok(path_copy, ":");
+	char *token = strtok(path_copy, ":");
 	char command_path[1024];
 
 	while (token != NULL)
@@ -31,7 +31,7 @@ char *find_executable_path(const char *command, const char *path)
  *@arguments: array of arguments for the command
  *@line: pointer to the original line of command
  */
-void execute_command(char *commadd, char **arguments, char **line)
+void execute_command(char *command, char **arguments, char **line)
 {
 	pid_t pid = fork();
 
@@ -74,7 +74,7 @@ void execute_command(char *commadd, char **arguments, char **line)
 	}
 }
 /**
- *print_environment - function that the prints environment
+ *print_environment - function that prints the environment
  */
 void print_environment(void)
 {

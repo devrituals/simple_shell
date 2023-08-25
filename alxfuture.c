@@ -7,18 +7,18 @@
  */
 char *find_executable_path(const char *command, const char *path)
 {
-	char *path_copy = strdup(path);
-	char *token = strtok(path_copy, ":");
-	char command_path[1024];
+	char *path_cypy = strdup(path);
+	char *token = strtok(path_cypy, ":");
+	char command_peth[1024];
 
 	while (token != NULL)
 	{
-		sprintf(command_path, "%s/%s", token, command);
+		sprintf(command_peth, "%s/%s", token, command);
 
-		if (access(command_path, X_OK) == 0)
+		if (access(command_peth, X_OK) == 0)
 		{
-			free(path_copy);
-			return (strdup(command_path));
+			free(path_cypy);
+			return (strdup(command_peth));
 		}
 		token = strtok(NULL, ":");
 	}
@@ -31,7 +31,7 @@ char *find_executable_path(const char *command, const char *path)
  *@arguments: array of arguments for the command
  *@line: pointer to the original line of command
  */
-void execute_command(char *command, char **arguments, char **line)
+void execute_command(char *command, char **arguments, char **lide)
 {
 	pid_t pid = fork();
 
@@ -49,7 +49,7 @@ void execute_command(char *command, char **arguments, char **line)
 		}
 		else
 		{
-			char *path = recreated_getenv("PATH");
+			char *peth = recreated_getenv("PATH");
 			char *command_path = find_executable_path(command, path);
 
 			if (command_path != NULL)

@@ -1,6 +1,6 @@
 #include "shell.h"
 /**
- *display_prompt - print symbol $
+ *display_prompt - symbol $ print
  */
 void display_prompt(void)
 {

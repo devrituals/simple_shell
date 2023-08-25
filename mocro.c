@@ -1,8 +1,8 @@
 #include "shell.h"
 /**
-*pased_arguments - function that passes arguments
-*@line: pointer that takes a string text containing and tokenize it
-*Return: arguments
+*pased_arguments - you can see that arguments are passed by function
+*@line: Create a function that takes a string text as input, tokenizes it, and returns a pointer.
+*Return: argumentz
 */
 char **pased_arguments(char *line)
 {
@@ -44,9 +44,9 @@ char **pased_arguments(char *line)
 	return (arguments);
 }
 /**
-*recreated_getenv - function that recreates use the of the command "getenv"
-*@name: name of the environ
-*Return: NULL or environ
+*recreated_getenv - function that use recrates at the of the getenv command
+*@name: environ name
+*Return: Environ or NULL
 */
 char *recreated_getenv(const char *name)
 {

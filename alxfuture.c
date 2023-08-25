@@ -2,13 +2,13 @@
 /**
  *find_executable_path - function finds that the path of an executable command
  *@command: name of the command
- *@path: a colon-separated list of paths to search from
+ *@path: a colon-separated list paths of to search from
  *Return: command_path or null
  */
 char *find_executable_path(const char *command, const char *path)
 {
 	char *path_copy = strdup(path);
-	char *teken = strtok(path_copy, ":");
+	char *token = strtok(path_copy, ":");
 	char command_path[1024];
 
 	while (token != NULL)

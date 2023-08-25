@@ -8,17 +8,17 @@
 char *find_executable_path(const char *command, const char *path)
 {
 	char *path_cypy = strdup(path);
-	char *token = strtok(path_cypy, ":");
-	char command_peth[1024];
+	char *token = strtok(path_copy, ":");
+	char command_path[1024];
 
 	while (token != NULL)
 	{
-		sprintf(command_peth, "%s/%s", token, command);
+		sprintf(command_path, "%s/%s", token, command);
 
-		if (access(command_peth, X_OK) == 0)
+		if (access(command_path, X_OK) == 0)
 		{
-			free(path_cypy);
-			return (strdup(command_peth));
+			free(path_copy);
+			return (strdup(command_path));
 		}
 		token = strtok(NULL, ":");
 	}

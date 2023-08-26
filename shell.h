@@ -1,5 +1,5 @@
-#ifndef SHELL_H_
-#define SHELL_H_
+#ifndef SHELL_H
+#define SHELL_H
 
 #define MAX_COMMAND_LENGTH 1024
 #define MAX_ARGUMENTS 64
